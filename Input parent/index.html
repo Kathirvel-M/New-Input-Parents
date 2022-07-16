@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <link rel="stylesheet" href="../lib/Boostrap/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 class="text-white bg-dark text-center">Input Parent</h1>
+    <div class="container form-group">
+        <label for="name">Label Name</label>
+        <input type="text" class="form-control" id="label" placeholder="You Want Label Name">
+        <label for="input ">Input Type</label>
+        <select name="data" id="data" class="form-control">
+            <option value="0">Text</option>
+            <option value="1">Number</option>
+            <option value="2">date</option>
+            <option value="3">button</option>
+            <option value="4">Checkbox</option>
+        </select><br>
+        <label for="">Placeholder Name</label>
+        <input type="text" class="form-control" id="placeholder"  placeholder="You Want placeholder Name"><br>
+        <button class="btn btn-primary">Create</button>
+    </div>
+    <div class="container">
+        <div id="parents"></div>
+    </div>
+</body>
+<script src="../lib/Boostrap/jquery.min.js"></script>
+<script src="../lib/Boostrap/bootstrap.min.js"></script>
+<script>
+    $('button').click(function () {
+        var LabelData = $('#label').val();
+        var TypeData = $('#data').val();
+        var placeholderData = $('#placeholder').val();
+        var Parent = $('#parents').val()
+        console.log(LabelData, TypeData)
+        $('#parents').append('<label>' + LabelData + '</label><br><input id="DataType" name="placeholder" class="form-control" type="text"><br>')
+        if (TypeData == 0) {
+            document.getElementById('DataType').type = 'text';
+            $('#DataType').attr('placeholder',placeholderData);
+        }
+        else if (TypeData == 1) {
+            document.getElementById('DataType').type = 'number';
+            $('#DataType').attr('placeholder',placeholderData);
+        }
+        else if (TypeData == 2) {
+            document.getElementById('DataType').type = 'date';
+            $('#DataType').datepicker();
+            $('#DataType').attr('placeholder',placeholderData);
+        }
+        else if (TypeData == 3) {
+            document.getElementById('DataType').type = 'button';
+            $('#DataType').attr('placeholder',placeholderData);
+        }
+        else if (TypeData == 4) {
+            document.getElementById('DataType').type = 'checkbox';
+            $('#DataType').attr('placeholder',placeholderData);
+        }
+    });
+</script>
+
+</html>
